@@ -8,6 +8,7 @@
   },
   "engineStrict": true,
   "dependencies": {
+    "amazon-cognito-identity-js": "1.28.0",
     "contentful": "4.6.1",
     "gh-pages": "1.0.0",
     "jquery": "3.2.1",
@@ -23,7 +24,9 @@
     "react-router-dom": "4.1.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "json-loader": "0.5.7",
+    "react-scripts": "1.0.7",
+    "webpack": "3.10.0"
   },
   "scripts": {
     "predeploy": "npm run build",

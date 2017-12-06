@@ -24,12 +24,9 @@ class LoginForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const options = {
-      // url: COINMARKET_API,
-      data: JSON.stringify({
-        emailAddress: this.state.emailAddress,
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
+    const credentials = {
+        userName: this.state.emailAddress,
+        password: this.state.password,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -57,62 +54,30 @@ class LoginForm extends Component {
     return (
       <div className="login-form-container">
         <div className="form-container">
-          {(() => {
-            switch (this.state.sentStatus) {
-              case 'sent':
-                return (
-                  <Notice
-                    status="Your message has been sent! We'll contact you shortly"
-                    statusClass="success-message"
-                    noticeContainerClass="notice-container-success"
-                  />
-                );
-              case 'error':
-                return (
-                  <Notice
-                    status="An error occured, please try again"
-                    noticeContainerClass="notice-container-error"
-                    statusClass="error-message"
-                  />
-                );
-              default:
-                return '';
-            }
-          })()}
-          <div className="form-container">
-            <form onSubmit={this.handleSubmit}
-              className="form-inline">
-              <input
-                type="text"
-                onChange={this.handleChange}
-                placeholder="Email Address"
-                name="emailAddress"
-                value={this.state.emailAddress}
-                className="form-control"
-              />
-              <input
-                type="text"
-                onChange={this.handleChange}
-                placeholder="First Name"
-                name="firstName"
-                value={this.state.firstName}
-                className="form-control"
-              />
-              <input
-                type="text"
-                onChange={this.handleChange}
-                placeholder="Last Name"
-                name="lastName"
-                value={this.state.lastName}
-                className="form-control"
-              />
-              <input
-                className="btn btn-primary"
-                type="submit"
-                value="Log In"
-              />
-            </form>
-          </div>
+          <form onSubmit={this.handleSubmit}
+            className="form-inline">
+            <input
+              type="text"
+              onChange={this.handleChange}
+              placeholder="Email Address"
+              name="emailAddress"
+              value={this.state.emailAddress}
+              className="form-control"
+            />
+            <input
+              type="text"
+              onChange={this.handleChange}
+              placeholder="Password"
+              name="password"
+              value={this.state.password}
+              className="form-control"
+            />
+            <input
+              className="btn btn-primary"
+              type="submit"
+              value="Log In"
+            />
+          </form>
         </div>
       </div>
     );

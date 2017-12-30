@@ -1,6 +1,6 @@
 import React from 'react';
 import { ajax } from 'jquery';
-import { GET_TRANSACTIONS, DELETE_TRANSACTIONS, CURRENCIES } from '../../constants';
+import { GET_TRANSACTIONS, CURRENCIES } from '../../constants';
 import InvestmentForm from '../../components/InvestmentForm';
 import TransactionTable from '../../components/TransactionTable';
 
@@ -12,7 +12,6 @@ class TransactionContainer extends React.Component {
 
     this.getTransactions = this.getTransactions.bind(this);
     this.getAllCurrencies = this.getAllCurrencies.bind(this);
-    this.deleteTransaction = this.deleteTransaction.bind(this);
 
     this.state = {
       allData: [],
@@ -41,29 +40,18 @@ class TransactionContainer extends React.Component {
     })
   }
 
-  deleteTransaction(e){
-    e.preventDefault();
-    ajax({
-      url: `${DELETE_TRANSACTIONS}${e.target.id}`,
-      type: 'DELETE'
-    }).done(() => {
-      this.getTransactions();
-    })
-  }
-
   render(props) {
     return (
-      <div className="transaction-container-outer">
-        <div className="transaction-table-container">
-          <TransactionTable
-            allData={this.state.allData}
-            onClick={this.deleteTransaction}
-          />
+      <div>
+        <div className="transaction-container">
+          <div className="investment-line-container">
+            <TransactionTable allData={this.state.allData}/>
+          </div>
         </div>
-        <div className="investment-form-container-outer">
+        <div>
           <InvestmentForm
             currencies={this.state.currencies}
-            getTransactions={this.getTransactions}
+            getTransactions={this.getTransactions()}
           />
         </div>
       </div>

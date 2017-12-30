@@ -8,8 +8,10 @@ class LoginContainer extends Component {
 
   render() {
     return (
-      <div>
-        <LoginForm />
+      <div className="login-container">
+        <div className="login-container-inner">
+          <LoginForm />
+        </div>
       </div>
     );
   }

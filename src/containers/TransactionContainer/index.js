@@ -40,6 +40,19 @@ class TransactionContainer extends React.Component {
     })
   }
 
+<<<<<<< HEAD
+=======
+  deleteTransaction(e){
+    e.preventDefault();
+    ajax({
+      url: `${DELETE_TRANSACTIONS}/${e.target.id}`,
+      type: 'DELETE'
+    }).done(() => {
+      this.getTransactions();
+    })
+  }
+
+>>>>>>> master
   render(props) {
     return (
       <div>

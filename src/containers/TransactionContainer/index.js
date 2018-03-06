@@ -1,6 +1,6 @@
 import React from 'react';
 import { ajax } from 'jquery';
-import { GET_TRANSACTIONS, CURRENCIES } from '../../constants';
+import { GET_TRANSACTIONS, CURRENCIES, DELETE_TRANSACTIONS } from '../../constants';
 import InvestmentForm from '../../components/InvestmentForm';
 import TransactionTable from '../../components/TransactionTable';
 
@@ -40,8 +40,6 @@ class TransactionContainer extends React.Component {
     })
   }
 
-<<<<<<< HEAD
-=======
   deleteTransaction(e){
     e.preventDefault();
     ajax({
@@ -52,7 +50,6 @@ class TransactionContainer extends React.Component {
     })
   }
 
->>>>>>> master
   render(props) {
     return (
       <div>

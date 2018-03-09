@@ -56,13 +56,19 @@ class HomepageContainer extends React.Component {
   generateCards(){
     ajax(`${CRYPTO_TYPES}?user_id=${USER_ID}`)
       .then(cryptoTypes => {
-        ajax(`${COINMARKET_API}`)
+      cryptoTypes.data.map(crypto => {
+        let cryptoNameString = crypto.name;
+        cryptoNameString = cryptoNameString.replace(/\s+/g, '-').toLowerCase();
+        ajax(`${COINMARKET_API}${cryptoNameString}`)
           .then(exchangeRates => {
-            return this.setState({ exchangeRates: exchangeRates });
+            let exchangeRatesArray = this.state.exchangeRates;
+            exchangeRatesArray.push(exchangeRates[0]);
+            return this.setState({ exchangeRates: exchangeRatesArray })
           });
-        this.setState({ error: 'Error returning exchange rates from Coinmarket API' });
-        this.setState({ cryptoTypes: cryptoTypes.data });
-      });
+        return this.setState({ error: 'Error returning exchange rates from Coinmarket API' })
+      })
+        return this.setState({ cryptoTypes: cryptoTypes.data });
+      })
   }
 
   getAllCurrencies(){
@@ -86,9 +92,6 @@ class HomepageContainer extends React.Component {
       <div className="crypto-container outer">
         {this.state.cryptoTypes.map(currencies => {
           let icon = icons[`${currencies.symbol}Icon`];
-          if (!icon) {
-            icon = genericIcon;
-          }
           return (
             <div key={currencies.symbol} className="crypto-set">
               <div className="title-container">
@@ -132,7 +135,6 @@ class HomepageContainer extends React.Component {
         <InvestmentForm
           currencies={this.state.currencies}
           getTransactions={this.generateCards}
-          getTransactionSums={this.getTransactionSums}
         />
       </div>
     )

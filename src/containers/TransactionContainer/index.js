@@ -44,7 +44,7 @@ class TransactionContainer extends React.Component {
   deleteTransaction(e){
     e.preventDefault();
     ajax({
-      url: `${DELETE_TRANSACTIONS}/${e.target.id}`,
+      url: `${DELETE_TRANSACTIONS}/${e.target.id}?user_id=${USER_ID}`,
       type: 'DELETE'
     }).done(() => {
       this.getTransactions();

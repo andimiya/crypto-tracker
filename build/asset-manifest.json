@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.dc71314a.css",
-  "main.css.map": "static/css/main.dc71314a.css.map",
-  "main.js": "static/js/main.dee5948c.js",
-  "main.js.map": "static/js/main.dee5948c.js.map",
+  "main.css": "static/css/main.35619b62.css",
+  "main.css.map": "static/css/main.35619b62.css.map",
+  "main.js": "static/js/main.9afb4fb7.js",
+  "main.js.map": "static/js/main.9afb4fb7.js.map",
   "static/media/bitcoinIcon.svg": "static/media/bitcoinIcon.ec2a1502.svg",
   "static/media/bytecoinIcon.svg": "static/media/bytecoinIcon.8fc9eff8.svg",
   "static/media/crypto-track.png": "static/media/crypto-track.10507988.png",
@@ -16,5 +16,6 @@
   "static/media/instagram.svg": "static/media/instagram.433c2507.svg",
   "static/media/linkedin.svg": "static/media/linkedin.9624859d.svg",
   "static/media/litecoinIcon.svg": "static/media/litecoinIcon.2114489c.svg",
+  "static/media/profileIcon.svg": "static/media/profileIcon.8a86f2e1.svg",
   "static/media/rippleIcon.svg": "static/media/rippleIcon.38f011a3.svg"
 }

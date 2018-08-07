@@ -24,7 +24,7 @@ $background-color-dark: #75d6c7;
 $text-color-dark: black;
 $text-color-h2: #68c9ba;
 $text-link: #5db2a6;
-$background-color-tiles: #FAFAFA;
+$background-color-tiles: #fafafa;
 $font: 'futura-pt';
 
 #app-container {
@@ -75,7 +75,7 @@ $font: 'futura-pt';
     font-weight: 500;
     letter-spacing: 1.8px;
     color: $text-color-dark;
-  },
+  }
   a:hover {
     color: white;
   }
@@ -107,9 +107,9 @@ $font: 'futura-pt';
       letter-spacing: 1.8px;
       color: $text-color-dark;
       margin: 0;
-
-    },
-    a,p:hover {
+    }
+    a,
+    p:hover {
       color: white;
     }
   }
@@ -308,7 +308,6 @@ form {
   }
 
   .table-container {
-
     th {
       text-transform: uppercase;
       font-weight: 500;
@@ -333,7 +332,6 @@ form {
     }
 
     a:hover {
-
       img {
         visibility: visible;
       }

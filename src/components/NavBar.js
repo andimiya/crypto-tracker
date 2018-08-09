@@ -48,7 +48,7 @@ class NavBar extends Component {
         .then(() => {
           this.props.history.push('/');
         })
-        .catch(err => {});
+        .catch(err => { });
     } else {
       return true;
     }
@@ -70,13 +70,13 @@ class NavBar extends Component {
         navDisplayText: 'Transactions',
         showWhenLoggedIn: true
       },
-      // {
-      //   menuItemContainerClass: "menu-item",
-      //   linkTo: "/new-investments",
-      //   onClick: this.collapseNav,
-      //   navDisplayText: "Add New",
-      //   showWhenLoggedIn: true
-      // },
+      {
+        menuItemContainerClass: "menu-item",
+        linkTo: "/day-trade",
+        onClick: this.collapseNav,
+        navDisplayText: "Day Trade",
+        showWhenLoggedIn: true
+      },
       {
         menuItemContainerClass: 'menu-item',
         linkTo: '/create-account',
@@ -131,16 +131,16 @@ class NavBar extends Component {
               {!this.props.firstName ? (
                 <p />
               ) : (
-                <p>
-                  <img
-                    src={profileIcon}
-                    alt="Profile"
-                    width="35px"
-                    height="35px"
-                  />
-                  {this.props.firstName}
-                </p>
-              )}
+                  <p>
+                    <img
+                      src={profileIcon}
+                      alt="Profile"
+                      width="35px"
+                      height="35px"
+                    />
+                    {this.props.firstName}
+                  </p>
+                )}
             </Link>
           </div>
         </div>

@@ -10,6 +10,7 @@ import ForgotPasswordContainer from '../containers/ForgotPasswordContainer';
 import ResetPasswordContainer from '../containers/ResetPasswordContainer';
 import NewInvestmentsContainer from '../containers/NewInvestmentsContainer';
 import UserAccountContainer from '../containers/UserAccountContainer';
+import DayTradeContainer from '../containers/DayTradeContainer';
 import UserConfirmedContainer from '../containers/UserConfirmedContainer';
 import Footer from '../components/Footer';
 import CheckAuth from '../components/checkAuth';
@@ -47,10 +48,11 @@ const Routes = props => {
           component={ResetPasswordContainer}
         />
         <Route exact path="/" component={MktgPageContainer} />
+        <Route path="/day-trade" component={DayTradeContainer} />
       </Switch>
       <AuthRoutes path="/summary" component={SummaryContainer} />
       <AuthRoutes path="/transactions" component={TransactionContainer} />
-      <AuthRoutes path="/account" component={UserAccountContainer} />
+      {/* <AuthRoutes path="/day-trade" component={DayTradeContainer} /> */}
       <AuthRoutes path="/new-investments" component={NewInvestmentsContainer} />
       <AuthRoutes path="/confirm" component={UserConfirmedContainer} />
       <Footer />

@@ -15,7 +15,6 @@ const DayTradeTable = props => {
             <th className="align-middle">Pred. SELL</th>
             <th className="align-middle">Pred. BUY</th>
             <th className="align-middle">High/ N.Close</th>
-            <th className="align-middle">Pred. BUY</th>
             <th className="align-middle">Sell %</th>
             <th className="align-middle">Buy %</th>
             <th className="align-middle">Daily H/L</th>
@@ -43,6 +42,29 @@ const DayTradeTable = props => {
                 <td>
                   {(!props.allData[i - 1] ? "" : (((binanceData.high / props.allData[i - 1].close) - 1) * 100).toFixed(2)
                   )}%
+                </td>
+                <td>
+                  Sell %
+                </td>
+                <td>
+                  Buy %
+                </td>
+                <td>
+                  {(!props.allData[i - 1] ? "" : (
+                    ((props.allData[i - 1].high - props.allData[i - 1].low)
+                      /
+                      props.allData[i - 1].low) * 100
+                  )
+                    .toFixed(1))}%
+                </td>
+                <td>
+                  {(!props.allData[i - 1] ? "" : (
+                    (
+                      ((props.allData[i - 1].high - props.allData[i - 1].close)
+                        /
+                        (props.allData[i - 1].high - props.allData[i - 1].low)) * 100
+                    )
+                      .toFixed(1)))}%
                 </td>
               </tr>
             );

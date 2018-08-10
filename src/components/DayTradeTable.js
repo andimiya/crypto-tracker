@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 const DayTradeTable = props => {
   return (
@@ -25,33 +25,16 @@ const DayTradeTable = props => {
           </tr>
         </thead>
         <tbody>
-          {props.allData.map(transactions => {
+          {props.allData.map((binanceData, i) => {
             return (
-              <tr key={transactions.transaction_id}>
-                <td key={transactions.updated_at}>
-                  {moment
-                    .utc(transactions.updated_at)
-                    .format('X')}
-                </td>
-                <td>{transactions.name}</td>
-                <td>{transactions.usd_invested}</td>
-                <td>{transactions.exchange_rate}</td>
-                <td>{transactions.coin_purchased}</td>
-                <td>
-                  {moment(transactions.purchased_at).format(
-                    'MMM DD, YYYY H:mm'
-                  )}
-                </td>
-                <td>
-                  <a onClick={props.onClick}>
-                    <img
-                      className="delete-button"
-                      id={transactions.transaction_id}
-                      src={deleteIcon}
-                      alt="Delete Transaction"
-                    />
-                  </a>
-                </td>
+              <tr key={i}>
+                <td key={binanceData.open_time}>Open Time: {moment
+                  .unix(binanceData.open_time / 1000)
+                  .format("MMM DD, YYYY")}</td>
+                <td key={binanceData.high}>{binanceData.high.toFixed(2)}</td>
+                <td key={binanceData.low}>{binanceData.low.toFixed(2)}</td>
+                <td key={binanceData.close}>{binanceData.close.toFixed(2)}</td>
+                <td>{((binanceData.high + binanceData.low) / 2).toFixed()}</td>
               </tr>
             );
           })}

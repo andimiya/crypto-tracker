@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import { connect } from 'react-redux';
-import moment from 'moment';
 import { GET_BINANCE_FROM_DB } from '../../constants';
 import { getDatabaseUserInfo } from '../../redux/auth';
+import DayTradeTable from '../../components/DayTradeTable';
 
 function mapStateToProps(state) {
   return {
@@ -38,14 +38,9 @@ class DayTradeContainer extends Component {
       <div className="transaction-container outer" >
         <div className="transaction-table-container">
           <h1>Binance Table</h1>
-          {this.state.binance_data_from_db.map((binanceData, i) => {
-            return (
-              <div key={i}>
-                <div>Open Time:{moment.unix(binanceData.open_time / 1000).format("MMM DD, YY HH:mm:ss Z")}</div>
-                <div>Open Time:{binanceData.open_time}</div>
-              </div>
-            );
-          })}
+          <DayTradeTable
+            allData={this.state.binance_data_from_db}
+          />
         </div>
       </div>
     );
